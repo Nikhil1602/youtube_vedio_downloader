@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, intial-scale=1.0" />
+    <title>YouTube Video Downloader | Download YouTube videos for free</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <div id="navbar">
+        <a href="https://www.instagram.com/nik5257/" id="follow" class="link">
+          Follow Me
+        </a>
+      </div>
+    </header>
+
+    <div id="main-body">
+      <h1>YouTube Video Downloader</h1>
+
+      <form>
+        <input
+          type="text"
+          name="search"
+          value
+          id="search-bar"
+          placeholder="Paste your link here..."
+          autocomplete="off"
+        />
+
+        <button type="button" value="Start" id="btnSubmit" class="btn">
+          Start
+        </button>
+        <button
+          type="reset"
+          id="btnReset"
+          onclick="stop()"
+          class="btn"
+          value="Reset"
+        >
+          Reset
+        </button>
+
+        <img id="loading" src="Images/loading.gif" />
+      </form>
+
+      <div id="result" style="display: none">
+        <div id="image-box">
+          <img id="thumbnail" />
+        </div>
+        <div id="title">
+          <h3></h3>
+        </div>
+        <div class="controls">
+          <input type="hidden" id="video-url" />
+          <select id="download-options"></select>
+          <button id="download-btn">Download</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="bottom-area">
+      <p id="heading-2">Best YouTube Video Downloader</p>
+
+      <div id="box1">
+        <h3>Free Download</h3>
+        <p>Unlimited downloads without any Ads & Registration.</p>
+      </div>
+
+      <div id="box2">
+        <h3>Audio/Video</h3>
+        <p>Supports Downloading with Audio and Video.</p>
+      </div>
+
+      <div id="box3">
+        <h3>Quality Download</h3>
+        <p>Download video from low to high quality.</p>
+      </div>
+    </div>
+
+    <script>
+      const host = "http://localhost:5000/";
+      let downloadDetails = [];
+      let html = "";
+      let submitBtn = document.getElementById("btnSubmit");
+      let downloadBtn = document.getElementById("download-btn");
+
+      function stop() {
+        loading.style.visibility = "hidden";
+      }
+
+      function setVideoInfo(data) {
+        if (data.hasAudio == true && data.hasVideo == true) {
+          html += `
+				<option value="${data.itag}">
+					${data.container} - video - ${data.qualityLabel}
+				</option>	
+			`;
+          downloadDetails.push({
+            key: data.itag,
+            url: data.url,
+          });
+        }
+
+        if (data.hasAudio == true && data.hasVideo == false) {
+          html += `
+				<option value="${data.itag}">
+					${data.container} - audio
+				</option>	
+			`;
+          downloadDetails.push({
+            key: data.itag,
+            url: data.url,
+          });
+        }
+      }
+
+      submitBtn.addEventListener("click", function () {
+        let videoURL = document.querySelector("#search-bar").value.trim();
+        let result = document.getElementById("result");
+        let detailsNodes = {
+          thumbnail: document.querySelector("#result #image-box img"),
+          title: document.querySelector("#result #title h3"),
+          videoURL: document.querySelector("#result .controls #video-url"),
+          downloadOptions: document.querySelector(
+            "#result .controls #download-options"
+          ),
+        };
+
+        loading.style.visibility = "visible";
+
+        if (videoURL.length == 0) {
+          loading.style.visibility = "hidden";
+          alert("Please enter youtube video link");
+          return;
+        }
+
+        fetch(host + "videoInfo?videoURL=" + videoURL)
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            for (let i = 0; i < data.formats.length; i++) {
+              setVideoInfo(data.formats[i]);
+
+              detailsNodes.thumbnail.src =
+                data.videoDetails.thumbnails[
+                  data.videoDetails.thumbnails.length - 1
+                ].url;
+              detailsNodes.title.innerHTML = data.videoDetails.title;
+              detailsNodes.videoURL.value = videoURL;
+              detailsNodes.downloadOptions.innerHTML = html;
+
+              loading.style.visibility = "hidden";
+              result.style.display = "block";
+              result.scrollIntoView({
+                behavior: "smooth",
+              });
+            }
+          })
+          .catch(function (error) {
+            alert("Something went wrong");
+          });
+      });
+
+      downloadBtn.addEventListener("click", function () {
+        const itag = document.querySelector("#download-options").value;
+
+        for (let property in downloadDetails) {
+          if (itag == `${downloadDetails[property].key}`) {
+            window.open(`${downloadDetails[property].url}`);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "YouTube_Video_Downloader",
+  "version": "1.0.0",
+  "description": "This Website is all about YouTube Video Downloading!",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ytdl-core": "^4.8.3"
+  }
+}
