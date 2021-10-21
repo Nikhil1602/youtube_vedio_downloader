@@ -3,7 +3,8 @@
 This a youtube vedio downloading website where you can download
 your favorite youtube vedio in the best quality. It also supports
 audio format. You just need to copy the url of the vedio from
-youtube and paste it to to empty field and click on the star button.
+youtube and paste it to to empty field and click on the start button
+and download the file in whatever format you want.
 Just as simple as that!!
 
 link - https://video-download-youtube.herokuapp.com/
