@@ -1,6 +1,7 @@
 const express = require("express");
 const ytdl = require("ytdl-core");
 const app = express();
+const port = process.env.PORT;
 
 app.use(express.json());
 app.use(express.static("public"));
@@ -15,4 +16,4 @@ app.get("/videoInfo", async function (request, response) {
   response.status(200).json(info);
 });
 
-app.listen(5000);
+app.listen(port);
