@@ -9,7 +9,7 @@ Just as simple as that!!
 
 link - https://video-download-youtube.herokuapp.com/
 
-### Tools used:
+### Tools & technologies used:
 
 - HTML
 - CSS
