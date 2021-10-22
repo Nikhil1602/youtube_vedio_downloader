@@ -16,6 +16,7 @@ link - https://video-download-youtube.herokuapp.com/
 - JavaScript
 - Express.js
 - [ytdl-core](https://www.github.com/octokatherine) (npm-package)
+- [heroku](https://www.heroku.com) (hosting)
 
 ## Installation
 
