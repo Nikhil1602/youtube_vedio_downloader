@@ -3,18 +3,19 @@
 This a youtube vedio downloading website where you can download
 your favorite youtube vedio in the best quality. It also supports
 audio format. You just need to copy the url of the vedio from
-youtube and paste it to to empty field and click on the search.
+youtube and paste it to to empty field and click on the start button and download the file in whatever format you want.
 Just as simple as that!!
 
-link - https://nikhil1602.github.io/youtube_vedio_downloader/public/
+link - [https://video-download-youtube.herokuapp.com/](https://video-download-youtube.herokuapp.com/)
 
-### Tools used:
+### Tools & technologies used:
 
 - HTML
 - CSS
 - JavaScript
 - Express.js
 - [ytdl-core](https://www.github.com/octokatherine) (npm-package)
+- [heroku](https://www.heroku.com) (hosting)
 
 ## Installation
 
