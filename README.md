@@ -31,7 +31,7 @@ Now run the below commands in your terminal,
 ```bash
   cd youtube_vedio_downloader
   npm install
-  npm start
+  node index.js
 ```
 
 ## Author
