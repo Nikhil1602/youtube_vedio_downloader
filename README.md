@@ -15,7 +15,7 @@ link - [https://video-download-youtube.herokuapp.com/](https://video-download-yo
 - CSS
 - JavaScript
 - Express.js
-- [ytdl-core](https://www.github.com/octokatherine) (npm-package)
+- [ytdl-core](https://github.com/fent/node-ytdl-core#readme) (npm-package)
 - [heroku](https://www.heroku.com) (hosting)
 
 ## Installation
@@ -31,7 +31,7 @@ Now run the below commands in your terminal,
 ```bash
   cd youtube_vedio_downloader
   npm install
-  npm start
+  node main.js
 ```
 
 ## Author
