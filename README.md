@@ -1,8 +1,8 @@
-# Youtube Vedio Downloader
+# Youtube Video Downloader
 
-This a youtube vedio downloading website where you can download
-your favorite youtube vedio in the best quality. It also supports
-audio format. You just need to copy the url of the vedio from
+This a youtube video downloading website where you can download
+your favorite youtube video in the best quality. It also supports
+audio format. You just need to copy the url of the video from
 youtube and paste it to to empty field and click on the start
 button and download the file in whatever format you want.
 Just as simple as that!!
