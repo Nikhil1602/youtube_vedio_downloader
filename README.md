@@ -7,7 +7,7 @@ youtube and paste it to to empty field and click on the start
 button and download the file in whatever format you want.
 Just as simple as that!!
 
-link - [https://video-download-youtube.herokuapp.com/](https://video-download-youtube.herokuapp.com/)
+link - [https://youtube-video-downloader.cyclic.app/](https://youtube-video-downloader.cyclic.app/)
 
 ### Tools & technologies used:
 
@@ -16,7 +16,7 @@ link - [https://video-download-youtube.herokuapp.com/](https://video-download-yo
 - JavaScript
 - Express.js
 - [ytdl-core](https://github.com/fent/node-ytdl-core#readme) (npm-package)
-- [heroku](https://www.heroku.com) (hosting)
+- [cyclic](https://app.cyclic.sh/) (deployment)
 
 ## Installation
 
